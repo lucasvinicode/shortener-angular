@@ -11,6 +11,7 @@ import {CdkDragDrop, CdkDrag, moveItemInArray, DragDropModule} from '@angular/cd
 import { HttpClient, HttpClientModule, HttpHeaders, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { Steps } from './enums';
 import {ClipboardModule} from '@angular/cdk/clipboard'
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -45,7 +46,7 @@ export class AppComponent {
 	}
 	
 	onSubmit(){
-		this.http.post<Result>(this.apiUrl, {url: this.formGroup.value.text}).subscribe({
+		this.http.post<Result>(environment.BASE_URL, {url: this.formGroup.value.text}).subscribe({
 			next: (r) => {
 				this.result = r.urlEncurtada;
 				this.step = Steps.Created;

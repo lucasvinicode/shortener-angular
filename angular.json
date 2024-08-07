@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "to-do-list": {
+    "shortener-angular": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/to-do-list",
+            "outputPath": "dist/shortener-angular",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -62,14 +62,16 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "to-do-list:build:production"
+              "buildTarget": "shortener-angular:build:production"
             },
             "development": {
-              "buildTarget": "to-do-list:build:development"
+              "buildTarget": "shortener-angular:build:development"
             }
           },
           "defaultConfiguration": "development",
-		  "options": {}
+		  "options": {
+			"proxyConfig": "proxy.conf.json"
+		  }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n"
