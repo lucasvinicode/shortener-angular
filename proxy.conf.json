@@ -1,0 +1,10 @@
+{
+	"/api": {
+		"target": "https://api.encurtador.dev/encurtamentos",
+		"secure": false,
+		"changeOrigin": true,
+		"pathRewrite": {
+			"^/api": ""
+		}
+	}
+}

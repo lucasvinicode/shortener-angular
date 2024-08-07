@@ -1,0 +1,59 @@
+<div class="container mt-5 custom-border">
+	<div *ngIf="step == 'Init'">
+		<div class="row justify-content-center">
+			<div class="col-2">
+			</div>
+			<div class="col text-center" [formGroup]="formGroup">
+				<h3>Encurtador de Links</h3>
+				<mat-form-field  class="w-100">
+					<input #inputField matInput formControlName="text">
+				</mat-form-field>
+			</div>
+			<div class="col-2">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-2">
+			</div>
+			<div class="col justify-content-center">
+				<button mat-button type="button" (click)="onSubmit()" class="w-100">
+					Encurtar
+					<mat-icon>cached</mat-icon>
+				</button>
+			</div>
+			<div class="col-2">
+				
+			</div>
+		</div>
+	</div>
+	<div *ngIf="step == 'Created'">
+		<div class="row justify-content-center">
+			<div class="col-2">
+			</div>
+			<div class="col text-center">
+				<h3>
+					Link Encurtado
+				</h3>
+				<div class="d-flex justify-content-center box">
+					<p class="mt-2">{{result}}</p>
+					<button mat-icon-button type="button"[cdkCopyToClipboard]="result">
+						<mat-icon>content_copy</mat-icon>
+					</button>
+				</div>
+			</div>
+			<div class="col-2">
+			</div>
+		</div>
+		<div class="col-2">
+		</div>
+		<div class="col justify-content-center">
+			<button mat-button type="button" (click)="back()" class="w-100">
+				Encurtar outra url
+				<mat-icon>back</mat-icon>
+			</button>
+		</div>
+		<div class="col-2">
+			
+		</div>
+	</div>
+</div>
