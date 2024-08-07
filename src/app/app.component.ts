@@ -33,6 +33,7 @@ import {ClipboardModule} from '@angular/cdk/clipboard'
   styleUrl: './app.component.css',
 })
 export class AppComponent {
+	apiUrl: string = 'https://api.encurtador.dev/encurtamentos';
 	formGroup: FormGroup;
 	result: string = '';
 	step: Steps = Steps.Init;
@@ -44,7 +45,7 @@ export class AppComponent {
 	}
 	
 	onSubmit(){
-		this.http.post<Result>('/api', {url: this.formGroup.value.text}).subscribe({
+		this.http.post<Result>(this.apiUrl, {url: this.formGroup.value.text}).subscribe({
 			next: (r) => {
 				this.result = r.urlEncurtada;
 				this.step = Steps.Created;
